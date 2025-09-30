@@ -10,7 +10,7 @@ export default function Adota() {
       tipo: "cachorro",
       idade: "2 anos",
       raca: "Labrador",
-      imagem: "/images/animal1.jpg",
+      imagem: "/images/cachorro_1.png",
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ export default function Adota() {
       tipo: "gato",
       idade: "1 ano",
       raca: "Siamês",
-      imagem: "/images/animal2.jpg",
+      imagem: "/images/cachorro_2.png",
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ export default function Adota() {
       tipo: "cachorro",
       idade: "3 anos",
       raca: "Pastor Alemão",
-      imagem: "/images/animal3.jpg",
+      imagem: "/images/cachorro_3.png",
     },
     {
       id: 4,
@@ -34,7 +34,7 @@ export default function Adota() {
       tipo: "gato",
       idade: "6 meses",
       raca: "Persa",
-      imagem: "/images/animal4.jpg",
+      imagem: "/images/gato_1.png",
     },
     {
       id: 5,
@@ -42,7 +42,7 @@ export default function Adota() {
       tipo: "cachorro",
       idade: "4 anos",
       raca: "Beagle",
-      imagem: "/images/animal5.jpg",
+      imagem: "/images/gato_2.png",
     },
     {
       id: 6,
@@ -50,39 +50,7 @@ export default function Adota() {
       tipo: "gato",
       idade: "2 anos",
       raca: "Maine Coon",
-      imagem: "/images/animal6.jpg",
-    },
-    {
-      id: 7,
-      nome: "Nina",
-      tipo: "coelho",
-      idade: "1 ano",
-      raca: "Anão",
-      imagem: "/images/animal7.jpg",
-    },
-    {
-      id: 8,
-      nome: "Rudy",
-      tipo: "cachorro",
-      idade: "5 anos",
-      raca: "Bulldog",
-      imagem: "/images/animal8.jpg",
-    },
-    {
-      id: 9,
-      nome: "Ginger",
-      tipo: "gato",
-      idade: "3 anos",
-      raca: "Siberiano",
-      imagem: "/images/animal9.jpg",
-    },
-    {
-      id: 10,
-      nome: "Bola",
-      tipo: "cachorro",
-      idade: "2 anos",
-      raca: "Poodle",
-      imagem: "/images/animal10.jpg",
+      imagem: "/images/gato_3.png",
     },
   ];
 
@@ -94,14 +62,17 @@ export default function Adota() {
   return (
     <div className="min-h-screen bg-[#FA8072] text-white">
       {/* HERO */}
-      <section className="relative h-[50vh] flex items-center justify-center text-center bg-cover bg-center"
+      <section
+        className="relative h-[50vh] flex items-center justify-center text-center bg-cover bg-center"
         style={{
           backgroundImage:
             "linear-gradient(rgba(250,128,114,0.6), rgba(250,128,114,0.8)), url('/images/animals.png')",
         }}
       >
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Adoção de Animais</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Adoção de Animais
+          </h1>
           <p className="text-lg md:text-xl">
             Encontre seu novo melhor amigo e dê um lar cheio de amor! 🐾
           </p>
@@ -112,7 +83,7 @@ export default function Adota() {
       <section className="py-10 text-center bg-[#FA8072]/90">
         <h2 className="text-2xl font-bold mb-6">Filtrar por tipo de animal</h2>
         <div className="flex justify-center gap-4 flex-wrap">
-          {["todos", "cachorro", "gato", "coelho"].map((tipo) => (
+          {["todos", "cachorro", "gato"].map((tipo) => (
             <button
               key={tipo}
               onClick={() => setFiltro(tipo)}
@@ -122,7 +93,9 @@ export default function Adota() {
                   : "bg-white/30 text-white hover:bg-white/50"
               }`}
             >
-              {tipo === "todos" ? "Todos" : tipo.charAt(0).toUpperCase() + tipo.slice(1)}
+              {tipo === "todos"
+                ? "Todos"
+                : tipo.charAt(0).toUpperCase() + tipo.slice(1)}
             </button>
           ))}
         </div>
@@ -144,8 +117,12 @@ export default function Adota() {
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-bold">{animal.nome}</h3>
-                  <p className="mt-1 text-[#FA8072] font-semibold">{animal.tipo}</p>
-                  <p className="mt-2 text-gray-700">{animal.raca} - {animal.idade}</p>
+                  <p className="mt-1 text-[#FA8072] font-semibold">
+                    {animal.tipo}
+                  </p>
+                  <p className="mt-2 text-gray-700">
+                    {animal.raca} - {animal.idade}
+                  </p>
                   <button className="mt-4 inline-block bg-[#FA8072] text-white px-6 py-2 rounded-lg hover:bg-red-500 transition">
                     Adotar
                   </button>

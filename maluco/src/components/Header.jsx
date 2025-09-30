@@ -1,18 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Calendar,
-  ChevronDown,
-  ChevronUp,
-  Home,
-  Store,
-  BookOpen,
-  Recycle,
-} from "lucide-react";
+import { Home, Store, Dog, Clipboard } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   return (
     <header className="bg-[#FA8072] text-white px-6 py-4 flex items-center justify-between fixed top-0 left-0 w-full z-50 shadow-lg">
@@ -40,7 +31,9 @@ export default function Header() {
 
       {/* Logo (direita) */}
       <div className="flex items-center gap-2">
-        <img src="/images/logo.png" alt="Ipet" className="h-10" />
+        <Link to="/">
+          <img src="/images/logo.png" alt="Ipet" className="h-10" />
+        </Link>
       </div>
 
       {/* Overlay */}
@@ -75,77 +68,30 @@ export default function Header() {
             <Home size={20} /> Home
           </Link>
 
-          {/* Eventos + Submenu */}
-          <div>
-            <button
-              onClick={() => setSubmenuOpen(!submenuOpen)}
-              className="flex items-center justify-between w-full hover:text-gray-200"
-            >
-              <span className="flex items-center gap-3">
-                <Calendar size={20} /> Blogs
-              </span>
-              {submenuOpen ? (
-                <ChevronUp size={18} />
-              ) : (
-                <ChevronDown size={18} />
-              )}
-            </button>
-
-            {/* Submenu animado */}
-            <div
-              className={`ml-6 flex flex-col gap-5 text-gray-300 overflow-hidden transition-all duration-500 ${
-                submenuOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <Link
-                to="/blog/arvore"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-white"
-              >
-                Dia da Árvore
-              </Link>
-              <Link
-                to="/blog/multirao"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-white"
-              >
-                Mutirão de Limpeza
-              </Link>
-              <Link
-                to="/blog/campanha"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-white"
-              >
-                Campanhas Coleta Seletiva
-              </Link>
-            </div>
-          </div>
-
           {/* Loja */}
           <Link
             to="/loja"
             onClick={() => setMenuOpen(false)}
             className="flex items-center gap-3 hover:text-gray-200"
           >
-            <Store size={20} /> Loja Sustentável
-          </Link>
-
-          {/* Informações */}
-          <Link
-            to="/info"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3 hover:text-gray-200"
-          >
-            <BookOpen size={20} /> Informações Adicionais
+            <Store size={20} /> Loja
           </Link>
 
           {/* Cadastro Reuso */}
           <Link
-            to="/reuso"
+            to="/adota"
             onClick={() => setMenuOpen(false)}
             className="flex items-center gap-3 hover:text-gray-200"
           >
-            <Recycle size={20} /> Cadastro de Reuso
+            <Dog size={20} /> Adote um pet
+          </Link>
+
+          <Link
+            to="/servicos"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-3 hover:text-gray-200"
+          >
+            <Clipboard size={20} /> Serviços
           </Link>
         </div>
       </div>

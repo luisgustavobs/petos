@@ -1,20 +1,60 @@
 import { useState } from "react";
 import { ShoppingCart, Plus, Minus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Catalogo() {
   const [quantities, setQuantities] = useState(Array(10).fill(0));
 
   const produtos = [
-    { id: 1, nome: "Ração Premium 10kg", preco: "R$ 159,90", descricao: "Ração nutritiva e saborosa para cães adultos.", imagem: "/images/racao.jpg" },
-    { id: 2, nome: "Brinquedo Interativo", preco: "R$ 49,90", descricao: "Diversão garantida para o seu pet se entreter sozinho.", imagem: "/images/brinquedo.jpg" },
-    { id: 3, nome: "Caminha Aconchego", preco: "R$ 89,90", descricao: "Caminha macia e confortável para noites tranquilas.", imagem: "/images/caminha.jpg" },
-    { id: 4, nome: "Coleira Estilosa", preco: "R$ 39,90", descricao: "Coleira ajustável com design moderno e resistente.", imagem: "/images/coleira.jpg" },
-    { id: 5, nome: "Shampoo Pet Suave", preco: "R$ 29,90", descricao: "Shampoo hipoalergênico para pelos brilhantes.", imagem: "/images/shampoo.jpg" },
-    { id: 6, nome: "Arranhador de Gatos", preco: "R$ 119,90", descricao: "Arranhador com várias plataformas e brinquedos.", imagem: "/images/arranhador.jpg" },
-    { id: 7, nome: "Comedouro Duplo Inox", preco: "R$ 59,90", descricao: "Comedouro prático e fácil de limpar.", imagem: "/images/comedouro.jpg" },
-    { id: 8, nome: "Tapete Higiênico 30un", preco: "R$ 79,90", descricao: "Alta absorção e neutralização de odores.", imagem: "/images/tapete.jpg" },
-    { id: 9, nome: "Petiscos Naturais", preco: "R$ 24,90", descricao: "Snack saudável feito com ingredientes selecionados.", imagem: "/images/petisco.jpg" },
-    { id: 10, nome: "Casinha Pet", preco: "R$ 249,90", descricao: "Casinha resistente e confortável para cães e gatos.", imagem: "/images/casinha.jpg" },
+    {
+      id: 1,
+      nome: "Kit ração úmida Optimun sachê para gatos",
+      preco: "R$ 159,90",
+      descricao: "Ração nutritiva e saborosa para gatos adultos.",
+      imagem: "/images/racao.jpg",
+    },
+    {
+      id: 2,
+      nome: "Brinquedo Interativo",
+      preco: "R$ 49,90",
+      descricao: "Diversão garantida para o seu pet se entreter sozinho.",
+      imagem: "/images/brinquedo.png",
+    },
+    {
+      id: 3,
+      nome: "Caminha Aconchego",
+      preco: "R$ 89,90",
+      descricao: "Caminha macia e confortável para noites tranquilas.",
+      imagem: "/images/caminha.png",
+    },
+    {
+      id: 4,
+      nome: "Coleira Estilosa",
+      preco: "R$ 39,90",
+      descricao: "Coleira ajustável com design moderno e resistente.",
+      imagem: "/images/coleira.png",
+    },
+    {
+      id: 5,
+      nome: "Shampoo Pet Suave",
+      preco: "R$ 29,90",
+      descricao: "Shampoo hipoalergênico para pelos brilhantes.",
+      imagem: "/images/shampoo_2.png",
+    },
+    {
+      id: 7,
+      nome: "Comedouro Duplo Inox",
+      preco: "R$ 59,90",
+      descricao: "Comedouro prático e fácil de limpar.",
+      imagem: "/images/comedouro.png",
+    },
+    {
+      id: 8,
+      nome: "Tapete Higiênico 30un",
+      preco: "R$ 79,90",
+      descricao: "Alta absorção e neutralização de odores.",
+      imagem: "/images/tapete.png",
+    },
   ];
 
   const alterarQuantidade = (index, delta) => {
@@ -96,9 +136,11 @@ export default function Catalogo() {
 
           {/* Botão Finalizar Compra */}
           <div className="mt-16 flex justify-center">
-            <button className="flex items-center gap-2 bg-[#ffffff] hover:bg-[#b8b8b8] text-[#FA8072] px-8 py-4 rounded-xl transition text-lg shadow-lg">
-              Finalizar Compra
-            </button>
+            <Link to="/login">
+              <button className="flex items-center gap-2 bg-[#ffffff] hover:bg-[#b8b8b8] text-[#FA8072] px-8 py-4 rounded-xl transition text-lg shadow-lg">
+                Finalizar Compra
+              </button>
+            </Link>
           </div>
         </div>
       </section>
